@@ -15,29 +15,20 @@
 
   <body>
     <nav class="navbar bg-primary mb-3" data-bs-theme="dark">
-    <div class="container-fluid">
+    <div class="container">
       <a class="navbar-brand" href="/">Travel Journal</a>
        <span class="navbar-text">
        <% @user = User.find_by({ "id" => session["user_id"] }) %>
        <% if @user == nil %>
-       <a href="/users/new">Sign Up</a> | <a href="/login">Login</a>
+       <a class="btn btn-primary" href="/users/new" role="button">Sign Up</a> | <a class="btn btn-primary" href="/login" role="button">Login</a>
        <% else %>
-        <%= @user["username"] %> | <a href="/logout">Logout</a>
+        <%= @user["username"] %> | <a class="btn btn-secondary" href="/logout" role="button">Logout</a>
       <% end %>
       </span>
      </div>
     </nav>
 
-    <div class="container">
-    <p>
-      <% @user = User.find_by({ "id" => session["user_id"] }) %>
-      <% if @user == nil %>
-        <a href="/users/new">Sign Up</a> | <a href="/login">Login</a>
-      <% else %>
-        <%= @user["username"] %> | <a href="/logout">Logout</a>
-      <% end %>
-    </p>
-
+    <div class="container">   
     <p>
       <%= flash["notice"] %>
     </p>

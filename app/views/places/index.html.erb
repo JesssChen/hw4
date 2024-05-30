@@ -4,14 +4,15 @@
 <% @user = User.find_by({ "id" => session["user_id"] }) %>
   <% if @user != nil %>
     <% for place in @places %>
+     <% user = User.find_by({ "id" => place["user_id"] }) %>
       <li><a href="/places/<%= place["id"] %>"><%= place["name"] %></a></li>
     <% end %> 
   <% else %>
-      <a> Log in First</a> 
+      <a> Login or Sign Up first to record new place</a> 
   <% end %>
 </ul>
 
 <p>
-  <a href="/places/new">New place</a>
+  <a class="btn btn-primary" href="/places/new" role="button">New Place</a>
 </p>
  
