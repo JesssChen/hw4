@@ -45,6 +45,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_31_224917) do
     t.date "occurred_on"
     t.integer "place_id"
     t.integer "user_id"
+    t.string "uploaded_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
